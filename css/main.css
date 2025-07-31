@@ -1569,4 +1569,244 @@ footer .copyright p a:hover {
     background: linear-gradient(135deg, #232323 0%, #232b23 100%);
   }
 }
+
+/* Behance Portfolio Styles */
+#behance-portfolio {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+}
+
+#behance-portfolio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.behance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.behance-item {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.behance-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(104, 211, 114, 0.2);
+}
+
+.behance-thumbnail {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.behance-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.behance-item:hover .behance-thumbnail img {
+  transform: scale(1.1);
+}
+
+.behance-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(104, 211, 114, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.behance-item:hover .behance-overlay {
+  opacity: 1;
+}
+
+.behance-link {
+  color: white;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.behance-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  color: white;
+}
+
+.behance-info {
+  padding: 1.5rem;
+}
+
+.behance-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.behance-info p {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.behance-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.behance-stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.behance-stats i {
+  color: #68d372;
+}
+
+.behance-cta {
+  text-align: center;
+}
+
+.behance-cta .btn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border: 2px solid #68d372;
+  transition: all 0.3s ease;
+}
+
+.behance-cta .btn:hover {
+  background: #68d372;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(104, 211, 114, 0.3);
+}
+
+/* Responsive Design for Behance Portfolio */
+@media (max-width: 768px) {
+  .behance-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .behance-thumbnail {
+    height: 200px;
+  }
+  
+  .behance-info {
+    padding: 1rem;
+  }
+  
+  .behance-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .behance-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .behance-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .behance-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Behance Loading and Setup States */
+.behance-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+}
+
+.behance-loading .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.behance-setup-message,
+.behance-success,
+.behance-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.behance-setup-message input {
+  transition: all 0.3s ease;
+}
+
+.behance-setup-message input:focus {
+  border-color: #4ea156;
+  box-shadow: 0 0 0 0.2rem rgba(104, 211, 114, 0.25);
+}
+
+.manual-projects {
+  grid-column: 1 / -1;
+}
+
+#manual-projects-list {
+  margin-bottom: 2rem;
+}
+
+#manual-projects-list .behance-item {
+  position: relative;
+}
+
+#manual-projects-list .behance-item .btn-outline-danger {
+  transition: all 0.3s ease;
+}
+
+#manual-projects-list .behance-item .btn-outline-danger:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
 /*# sourceMappingURL=main.css.map */
